@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">删除</button>
+</body>
+<script>
+    var btn = document.getElementById("btn")
+    console.log(document.cookie)
+    // document.cookie = "today=happyday"
+
+    function getCookie(){
+        let cookie = document.cookie;
+        let obj = {};
+        let cookieArr = cookie.split(";");
+        cookieArr.forEach(item  => {
+            let arr = item.split("=")
+            obj[arr[0]] = arr[1]
+        });
+        return obj
+    }
+    console.log(getCookie())
+
+    function setCookie(key,value,time){
+        let date = new Date();
+        date.setSeconds(date.setSeconds()+ time);
+        console.log(date);
+        let str = date.toUTCString();
+        console.log(str)
+        document.cookie = `${key}=${value};expires=${str}`;
+    }
+    setCookie("like","computer",120)
+
+   
+
+    function deleteCookie(key){
+        setCookie(key,null,-1)
+    }
+    deleteCookie("something","sdasdadasda",120)
+    btn.onclick = function (){
+        deleteCookie("something")
+    }
+</script>
+</html>

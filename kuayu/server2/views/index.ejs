@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>server2</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>我是server2</h1>
+  </body>
+  <!-- <script src="/js/axios.js"></script> -->
+  <!-- <script>
+    axios.get("http://localhost:3001/getJson").then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+  </script> -->
+  <!-- <script>
+    function getData(res){
+      console.log(res.data)
+    }
+    var script = document.createElement("script");
+    script.src = "http://localhost:3001/getJson?callback=getData";
+    document.body.appendChild(script)
+  </script> --> 
+  
+  <script src="/js/jquery.js"></script>
+  <script>
+    $.ajax({
+      url:"http://localhost:3001/getJson",
+      type:"get",
+      dataType:"jsonp",
+      success(res){
+        console.log(res)
+      }
+    })
+  </script>
+  <!-- jsop只能返回get请求的数据 -->
+
+  
+</html>

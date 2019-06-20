@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>我是server2</h1>
+</body>
+<script src="/js/axios.js"> </script>
+<script>
+    axios.post("http://localhost:3001/nosimple",{
+        firstName:"xie",
+        lastName:"runlin"
+    },{
+        withCredentials:true,
+    }).then(res => {
+        console.log(res)
+    })//非简单请求 Request Method: OPTIONS
+</script>
+<!-- <script>
+    //application/x-www-form-urlencoded //表单形式的ajax对象
+    xhr.send("name=yaoming&sex=boy")
+    //aplication/json  axios发送时的content-type
+    // xhr.send('{
+    //     "sex":"man",
+    //     "name":"yaoming"
+    // }')
+</script> -->
+</html>
